@@ -1,7 +1,7 @@
 // Type definitions for Lo-Dash
 // Project: http://lodash.com/
 // Definitions by: Brian Zengel <https://github.com/bczengel>, Ilya Mochalov <https://github.com/chrootsu>
-// Definitions: https://github.com/borisyankov/DefinitelyTyped
+// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare var _: _.LoDashStatic;
 
@@ -1472,6 +1472,13 @@ declare module _ {
         last<T>(array: List<T>): T;
     }
 
+    interface LoDashImplicitWrapper<T> {
+        /**
+         * @see _.last
+         */
+        last(): string;
+    }
+
     interface LoDashImplicitArrayWrapper<T> {
         /**
          * @see _.last
@@ -1486,18 +1493,25 @@ declare module _ {
         last<T>(): T;
     }
 
+    interface LoDashExplicitWrapper<T> {
+        /**
+         * @see _.last
+         */
+        last(): LoDashExplicitWrapper<string>;
+    }
+
     interface LoDashExplicitArrayWrapper<T> {
         /**
          * @see _.last
          */
-        last(): LoDashExplicitArrayWrapper<T>;
+        last<T>(): T;
     }
 
     interface LoDashExplicitObjectWrapper<T> {
         /**
          * @see _.last
          */
-        last<T>(): LoDashExplicitObjectWrapper<T>;
+        last<T>(): T;
     }
 
     //_.lastIndexOf
